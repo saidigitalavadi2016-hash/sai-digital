@@ -1,0 +1,11 @@
+const menu=document.querySelector('.menu'), links=document.querySelector('.nav-links');
+menu?.addEventListener('click',()=>links.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+document.getElementById('year').textContent=new Date().getFullYear();
+
+document.getElementById('quoteForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const v=id=>document.getElementById(id).value.trim();
+  const text=`Hi SAI DIGITAL,%0A%0AI need a printing quotation.%0A%0AName: ${encodeURIComponent(v('name'))}%0APhone: ${encodeURIComponent(v('phone'))}%0AService: ${encodeURIComponent(v('service'))}%0ASize: ${encodeURIComponent(v('width'))} x ${encodeURIComponent(v('height'))}%0AQuantity: ${encodeURIComponent(v('qty'))}%0ARequirements: ${encodeURIComponent(v('message'))}`;
+  window.open(`https://wa.me/919677267740?text=${text}`,'_blank');
+});
